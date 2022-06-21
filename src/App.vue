@@ -1,11 +1,20 @@
 <template>
   <div id="app">
+    <div class="bg-white">
+      <div class="container">
+        <TheHeader/>
+      </div>
+    </div>
+
+    <div class="bg-content">
+      <div class="container">
+        <main>
+            --> Content goes here
+        </main>
+      </div>
+    </div>
     
-    <TheHeader/>
-
     <TheFooter/>
-
-
   </div>
 </template>
 
@@ -20,12 +29,21 @@ export default {
 </script>
 
 <style lang="scss">
+@import "assets/scss/main.scss";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+  .bg-content {
+    background-color: #1C1C1C;
+  }
+
+  main {
+    padding: 2rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
 }
 </style>

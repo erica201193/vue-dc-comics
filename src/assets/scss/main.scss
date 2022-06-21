@@ -1,0 +1,15 @@
+
+.myButton {
+    color: blue;
+    background-color: pink;
+
+    &:hover {
+        background-color: red;
+        color: pink;
+    }
+
+    .icon {
+        color: white;
+        font-size: 1.3rem;
+    }
+}
