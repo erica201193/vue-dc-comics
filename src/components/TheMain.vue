@@ -1,13 +1,23 @@
 <template>
     <div class="products-container">
 
-        <div class="main-series-title">
-        <h5 class="text-uppercase">Current series</h5>
+        <div class="jumbo-bg-image">
+            <img src="/img/jumbotron.jpg" alt="" v-if="currentIndex === 0 ">
         </div>
-        <div class="row row-cols-6">
-            <div class="col pt-2 pb-4" v-for="product in products" :key="product.series">
-                <ProductCard :card-title="product.series"
-                :imgUrl="product.thumb"></ProductCard>
+        <div class="d-flex justify-content-center pt-3 selected-product align-items-center ">
+            <div class="text-light text-center fw-bold text-uppercase fs-3 p-4 " v-if="currentIndex !== 0 ">{{products[currentIndex].series }}</div>
+            <img :src="products[currentIndex].thumb" alt="" v-if="currentIndex !== 0 ">
+        </div>
+
+        <div class="container">
+            <div class="main-series-title">
+                <h5 class="text-uppercase">Current series</h5>
+            </div>
+            <div class="row row-cols-6">
+                <div class="col pt-2 pb-4" v-for="(product,i) in products" :key="product.series" @click="slider(i)">
+                    <ProductCard :card-title="product.series"
+                    :imgUrl="product.thumb"></ProductCard>
+                </div>
             </div>
         </div>
         
@@ -94,12 +104,42 @@ export default {
                 type: "graphic novel",
                 },
             ],
+            currentIndex: 0,
         };
     },
+
+    methods: {
+        slider(index) {
+
+            this.currentIndex = index;
+
+
+            console.log(`sei all'indice numero ${this.currentIndex} `)
+            console.log(this.currentIndex)
+
+        }
+    }
 };
 </script>
 
 <style lang="scss" scoped>
+
+.jumbo-bg-image {
+    & img {
+      width: 100%;
+      height: 400px;
+      object-fit: none;
+      object-position: top;
+    }
+  }
+
+.selected-product {
+    & img {
+      width: 20%;
+      height: 400px;
+      object-position: center;
+    }
+}
 .main-series-title {
     & h5 {
         font-size: 2rem;

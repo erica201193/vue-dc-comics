@@ -7,14 +7,14 @@
       </div>
     </div>
     
-    <div class="jumbo-bg-image">
+
+
+    <!-- <div class="jumbo-bg-image">
       <img src="/img/jumbotron.jpg" alt="">
-    </div>
+    </div> -->
 
     <div class="bg-main">
-      <div class="container">
-        <TheMain></TheMain>
-      </div>
+      <TheMain></TheMain>
     </div>
 
 
@@ -44,15 +44,6 @@ export default {
 
   .bg-main {
     background-color: #1C1C1C;
-  }
-
-  .jumbo-bg-image {
-    & img {
-      width: 100%;
-      height: 400px;
-      object-fit: none;
-      object-position: top;
-    }
   }
 }
 </style>
