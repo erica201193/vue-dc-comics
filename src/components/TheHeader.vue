@@ -1,14 +1,17 @@
 <template>
     <div>
-        <div class="row py-3">
+        <div class="row py-4">
             <div class="col-1 g-0 d-flex">
                 <img src="/img/dc-logo.png" alt="" class="logo">
             </div>
 
             <div class="col d-flex justify-content-end align-items-center">
-                <ul class="nav">
-                    <li class="nav-item" v-for="(link, i) in navLinks" :key="i">
-                        <a class="nav-link my-nav-link" aria-current="page" :href="link.href">{{ link.name }}</a>
+                <ul class="nav h-100 ">
+                    <li class="nav-item d-flex align-items-center" v-for="(link, i) in navLinks" :key="i">
+                        <a class="nav-link my-nav-link text-center" aria-current="page" :href="link.href">
+                        {{ link.name }}
+                        <div class="select-underline"></div>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -75,10 +78,28 @@ export default {
 
 }
 .my-nav-link {
-    font-size: 0.8rem;
+    color: #706f6f;
+    font-weight: bold;
 
     &:hover {
-        border-bottom: 5px solid blue;
+        color: #0482F9;
+        .select-underline {
+            opacity: 100%;
+        }
     }
+
+    &:focus {
+        color: #0482F9;
+        .select-underline {
+            opacity: 100%;
+        }
+    }
+}
+.select-underline {
+    width: 40px;
+    margin: auto;
+    border: 2px solid #0482F9;
+    transform: translate(0px, 40px);
+    opacity: 0%;
 }
 </style>

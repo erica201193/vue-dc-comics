@@ -2,20 +2,19 @@
     <footer>
         <div class="bg-blue">
             <div class="container">
-                <div class="row text-light">
-                    <div class="col" v-for="(link, i) in bannerLinks" :key="i">
-                        <div>
-                            <img :src="link.url" alt="" width="40">
-                            <a href="link.href" class="text-light">{{ link.name }}</a>
-                        </div>
+                <div class="row text-light py-5">
+                    <div class="col d-flex justify-content-center align-items-center" v-for="(link, i) in bannerLinks" :key="i">
+                        <img :src="link.url" alt="">
+                        <a href="link.href" class="text-light text-decoration-none ps-2">{{ link.name }}</a>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="footer-bg-image">
-            <div class="container position-relative">
-                <div class="row text-light py-5">
-                    <div class="col-4 d-flex">
+            <div class="container">
+                <div class="row text-light justify-content-between">
+                    <div class="col-4 d-flex py-5">
                         <div class="col">
                         <h5 class="text-uppercase fw-bold">Dc comics</h5>
                         <ul class="list-unstyled">
@@ -40,17 +39,36 @@
                         </ul>
                     </div>
                     </div>
-                </div>
-                <div class="logo-container">
-                    <img src="/img/dc-logo-bg.png" alt="" class="position-absolute footer-logo">
+                    <div class="col-6 p-0 logo-container">
+                        <img src="/img/dc-logo-bg.png" alt="">
+                    </div>
+                    <!-- <div class="col-6 logo-container">
+                        <img src="/img/dc-logo-bg.png" alt="">
+                    </div> -->
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col">signup</div>
-            <div class="col"></div>
+        
+        <div class="bg-grey">
+            <div class="container">
+                <div class="row justify-content-between align-items-center py-1">
+                    <div class="col-2">
+                        <a href="#" class="text-uppercase fw-bold signup-btn">Sign-up now!</a>
+                    </div>
+                    <div class="col d-flex align-items-center justify-content-end">
+                        <a href="#" class="text-uppercase fw-bold follow-btn ">Follow us</a>
+
+                        <a class="p-1" v-for="link in socialLinks" :key="link.name">
+                            <img :src="link.url" alt="">
+                        </a>
+
+
+                    </div>
+                </div>
+            </div>
         </div>
+
     </footer>
 </template>
 
@@ -119,6 +137,33 @@ export default {
                 "DC Kids",
                 "DC Universe",
                 "DC Power Visa",
+            ],
+            socialLinks: [
+                {
+                    name: "Facebook",
+                    href: "#",
+                    url: "/img/footer-facebook.png" 
+                },
+                {
+                    name: "Twitter",
+                    href: "#",
+                    url: "/img/footer-twitter.png" 
+                },
+                                {
+                    name: "You Tube",
+                    href: "#",
+                    url: "/img/footer-youtube.png" 
+                },
+                {
+                    name: "Pinterest",
+                    href: "#",
+                    url: "/img/footer-pinterest.png" 
+                },
+                {
+                    name: "Periscope",
+                    href: "#",
+                    url: "/img/footer-periscope.png" 
+                }
             ]
 
         }
@@ -129,29 +174,72 @@ export default {
 <style lang="scss" scoped>
 .bg-blue {
     background-color: rgb(4, 130, 249);
+    font-weight: bold;
+
+
+    img {
+        width: 40px;
+    }
 }
+
+.bg-grey {
+    background-color: #303030;
+    color: white;
+    padding: 20px;
+}
+
+
 
 .footer-bg-image {
     background-image: url("/public/img/footer-bg.jpg");
     background-position: center;
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+
 
     .row {
         font-size: 0.8rem;
         
         h5 {
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
     }
-.footer-logo {
-    width: 530px;
-    position: absolute;
-    top: -90px;
-    right:0;
+
+
+.logo-container {
+    height: 363px;
     overflow: hidden;
-
-
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        height: 155%;
+        
+    }
 }
+}
+.signup-btn {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    border: 2px solid rgb(4, 130, 249);
+    padding: .6rem 1rem;
+
+    &:hover {
+        color: rgb(4, 130, 249);
+    }
+}
+
+.follow-btn {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: rgb(4, 130, 249);
+    border: 2px solid transparent;
+    padding: .6rem 1rem;
+    margin-left: 0.5rem;
+
+    &:hover {
+        border: 2px solid white;
+    }
 }
 </style>

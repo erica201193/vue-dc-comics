@@ -1,15 +1,5 @@
 
-.myButton {
-    color: blue;
-    background-color: pink;
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
-    &:hover {
-        background-color: red;
-        color: pink;
-    }
+@import url("https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400;700&display=swap");
 
-    .icon {
-        color: white;
-        font-size: 1.3rem;
-    }
-}
