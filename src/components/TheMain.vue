@@ -2,11 +2,11 @@
     <div class="products-container">
 
         <div class="jumbo-bg-image">
-            <img src="/img/jumbotron.jpg" alt="" v-if="currentIndex === 0 ">
+            <img src="/img/jumbotron.jpg" alt="" v-if="currentIndex === null ">
         </div>
-        <div class="d-flex justify-content-center pt-3 selected-product align-items-center ">
-            <div class="text-light text-center fw-bold text-uppercase fs-3 p-4 " v-if="currentIndex !== 0 ">{{products[currentIndex].series }}</div>
-            <img :src="products[currentIndex].thumb" alt="" v-if="currentIndex !== 0 ">
+        <div class="row row-cols-1 pt-3 selected-product">
+            <div class="col text-light text-center fw-bold text-uppercase fs-2 p-4 " v-if="currentIndex !== null ">{{products[currentIndex].series }}</div>
+            <img :src="products[currentIndex].thumb" alt="" v-if="currentIndex !== null " class="col g-0">
         </div>
 
         <div class="container">
@@ -104,19 +104,15 @@ export default {
                 type: "graphic novel",
                 },
             ],
-            currentIndex: 0,
+            currentIndex: null,
         };
     },
 
     methods: {
         slider(index) {
-
             this.currentIndex = index;
 
-
             console.log(`sei all'indice numero ${this.currentIndex} `)
-            console.log(this.currentIndex)
-
         }
     }
 };
@@ -126,18 +122,21 @@ export default {
 
 .jumbo-bg-image {
     & img {
-      width: 100%;
-      height: 400px;
-      object-fit: none;
-      object-position: top;
+        width: 100%;
+        height: 400px;
+        object-fit: none;
+        object-position: top;
     }
-  }
+}
 
 .selected-product {
+    justify-content: center;
+    align-items: center;
     & img {
-      width: 20%;
-      height: 400px;
-      object-position: center;
+        width: 20%;
+        height: 400px;
+        object-position: center;
+        box-shadow: 0px 1rem 3rem rgba($color: #ffff, $alpha: 0.175)
     }
 }
 .main-series-title {
