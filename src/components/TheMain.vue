@@ -4,19 +4,20 @@
         <div class="jumbo-bg-image">
             <img src="/img/jumbotron.jpg" alt="" v-if="currentIndex === null ">
         </div>
-        <div class="row row-cols-1 pt-3 selected-product">
-            <div class="col text-light text-center fw-bold text-uppercase fs-2 p-4 " v-if="currentIndex !== null ">{{products[currentIndex].series }}</div>
-            <img :src="products[currentIndex].thumb" alt="" v-if="currentIndex !== null " class="col g-0">
+        <div class="row row-cols-1 pt-3 selected-product" v-if="currentIndex !== null">
+            <div class="col text-light text-center fw-bold text-uppercase fs-2 p-4 " >{{products[currentIndex].series }}</div>
+            <img :src="products[currentIndex].thumb" alt="" class="col g-0">
+            <div class="col text-light text-center text-uppercase fs-4 p-4">{{ products[currentIndex].price }}</div>
         </div>
 
         <div class="container">
             <div class="main-series-title">
-                <h5 class="text-uppercase">Current series</h5>
+                <h5 class="text-uppercase" >Current series</h5>
             </div>
             <div class="row row-cols-6">
                 <div class="col pt-2 pb-4" v-for="(product,i) in products" :key="product.series" @click="slider(i)">
                     <ProductCard :card-title="product.series"
-                    :imgUrl="product.thumb"></ProductCard>
+                    :imgUrl="product.thumb" :card-type="product.type" :card-price="product.price"></ProductCard>
                 </div>
             </div>
         </div>
@@ -149,6 +150,7 @@ export default {
         display: inline-block;
         position: relative;
         bottom: 30px;
+        box-shadow: .5rem .5rem 1rem rgba(#0482f9, .3);
     }
 }
 </style>
